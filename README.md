@@ -1,14 +1,14 @@
 
-# sisane client (warning: under development)
+# traveler client (warning: under development)
 
-  * sisane is a client for sisane server and provides a template to easy build small and medium AJAX projects with Angular 1.x    
+  * traveler is a client for traveler server and provides a template to easy build small and medium AJAX projects with Angular 1.x    
   * Has a component-oriented design.
-  * Because software development trends naturaly to be complex sisane is intended to be easy and keep simple all the process. 
-  * sisane client is used to teach web application development to vocational students and to qualify them to join the workforce maket of developers in a tiny period of time. sisane was designed to avoid spaghetti code and complexity as far as possible, and brings an aid in structurate code development by copy-paste and adapt learning techniques.
+  * Because software development trends naturaly to be complex traveler is intended to be easy and keep simple all the process. 
+  * traveler client is used to teach web application development to vocational students and to qualify them to join the workforce maket of developers in a tiny period of time. traveler was designed to avoid spaghetti code and complexity as far as possible, and brings an aid in structurate code development by copy-paste and adapt learning techniques.
 
   * Instructions:
-    * get started with sisane server
-    * clone the project and go against sisane server
+    * get started with traveler server
+    * clone the project and go against traveler server
 
 ## License
 
