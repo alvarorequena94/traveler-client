@@ -1,0 +1,178 @@
+<!DOCTYPE html>
+<html class="no-js" lang="en" ng-app="myApp">
+    <head>
+        <meta charset="utf-8">
+        <meta content="All" lang="en" name="robots" />
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta name="description" content="">
+        <meta name="author" content="Rafael Aznar">
+        <title>Traveler</title>
+        <!-- see resetCSS  -->
+        <link href="/traveler-client/public_html/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet" type="text/css">
+        <link href="/traveler-client/public_html/vendor/bootstrap-datetimepicker/bootstrap-datetimepicker.min.css" rel="stylesheet" type="text/css">
+        <link href="/traveler-client/public_html/vendor/font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css">
+        <link href="/traveler-client/public_html/css/main/fonts/fonts.css" rel="stylesheet" type="text/css">
+        <link href="/traveler-client/public_html/vendor/jqueryui/jquery-ui.min.css" rel="stylesheet" type="text/css" />
+        <link href="/traveler-client/public_html/css/main/main.css" rel="stylesheet" type="text/css">
+        <link href="/traveler-client/public_html/vendor/jqueryuitimepicker/jquery-ui-timepicker-addon.min.css" rel="stylesheet" type="text/css"/>
+        <link rel="icon" href="images/favicon.ico" type="image/x-icon" />
+        <!-- html5 mode off
+        <base href="/traveler/index.html" />
+        -->
+        <base href="/traveler-client/public_html/index.html" />
+    </head>
+    <body style="font-family: Questrial, serif;">
+        <!--[if lt IE 7]>
+            <p class="browsehappy">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience.</p>
+        <![endif]-->
+        <!-- Menu -->
+        <nav class="navbar navbar-default navbar-fixed-top" ng-controller="IndexController">
+            <div class="container-fluid" ng-include="'js/system/menu.html'"></div>
+        </nav>
+
+        <div ng-cloak ng-view></div>
+        <!-- ------------------------------- -->
+        <script src="vendor/jquery/jquery-3.1.1.min.js" type="text/javascript"></script>
+        <script src="vendor/bootstrap/js/bootstrap.min.js" type="text/javascript"></script>
+
+        <script src="vendor/jqueryui/jquery-ui.min.js" type="text/javascript"></script>
+        <script src="vendor/jqueryui/locale-es.js" type="text/javascript"></script>
+        
+        <script src="vendor/jqueryuitimepicker/jquery-ui-timepicker-addon.min.js" type="text/javascript"></script>
+        <script src="vendor/jqueryuitimepicker/jquery-ui-timepicker-addon-i18n.min.js" type="text/javascript"></script>
+        <script src="vendor/jqueryuitimepicker/jquery-ui-sliderAccess.js" type="text/javascript"></script>
+
+        <script src="vendor/angular/angular.min.js" type="text/javascript"></script>
+        <script src="vendor/angular/angular-sanitize.min.js" type="text/javascript"></script>
+        <script src="vendor/angular/angular-route.min.js" type="text/javascript"></script>
+
+        <script src="vendor/UIBootstrap/ui-bootstrap-tpls-2.2.0.min.js" type="text/javascript"></script>
+        
+        <script src="vendor/moment/moment-with-locales.min.js" type="text/javascript"></script>
+        <script src="vendor/angular/angular-locale_es-es.js" type="text/javascript"></script>
+
+        <script src="vendor/sha/forge-sha256.min.js" type="text/javascript"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.3.0/Chart.bundle.js"></script>   
+        <script src="vendor/angular-chart/dist/angular-chart.min.js"></script>
+        <!-- ------------------------------- -->
+        <script src="js/app.js" type="text/javascript"></script>
+        <script src="js/services.js" type="text/javascript"></script>
+        <script src="js/filters.js" type="text/javascript"></script>
+        <script src="js/directives.js" type="text/javascript"></script>
+        <!-- ------------------------------- -->
+        <script src="index.js" type="text/javascript"></script>
+        <!-- ------------------------------- -->
+        <script src="js/system/home.js" type="text/javascript"></script>
+        <script src="js/system/login.js" type="text/javascript"></script>
+        <script src="js/system/logout.js" type="text/javascript"></script>
+        <script src="js/system/license.js" type="text/javascript"></script>
+        <script src="js/system/passchange.js" type="text/javascript"></script>
+        <!-- ------------------------------- -->
+        <script src="js/system/components/plist/cpagination.js" type="text/javascript"></script>
+        <script src="js/system/components/plist/cfilter.js" type="text/javascript"></script>
+        <script src="js/system/components/plist/cinfo.js" type="text/javascript"></script>
+        <script src="js/system/components/plist/crpp.js" type="text/javascript"></script>
+        <script src="js/system/components/plist/cvisiblefields.js" type="text/javascript"></script>
+        <script src="js/system/components/plist/cforeign.js" type="text/javascript"></script>
+        <!-- ---->
+        <script src="js/system/components/plist/rpp.js" type="text/javascript"></script>
+        <script src="js/system/components/plist/filter.js" type="text/javascript"></script>
+        <script src="js/system/components/plist/tableheader.js" type="text/javascript"></script>
+        <script src="js/system/components/plist/visiblefields.js" type="text/javascript"></script>
+        <script src="js/system/components/plist/info.js" type="text/javascript"></script>
+        <!-- ------------------------------- -->
+        <script src="js/system/components/plistspa/cpagination.js" type="text/javascript"></script>
+        <script src="js/system/components/plistspa/pagination.js" type="text/javascript"></script>
+        <script src="js/system/components/plistspa/rpp.js" type="text/javascript"></script>
+        <script src="js/system/components/plistspa/filter.js" type="text/javascript"></script>
+        <script src="js/system/components/plistspa/tableheader.js" type="text/javascript"></script>
+        <script src="js/system/components/plistspa/visiblefields.js" type="text/javascript"></script>
+        <script src="js/system/components/plistspa/operationbar.js" type="text/javascript"></script>
+        <script src="js/system/components/plistspa/info.js" type="text/javascript"></script>
+        <script src="js/system/components/plistspa/tableSelectionHeader.js" type="text/javascript"></script>
+        <!-- ------------------------------- -->
+
+        <script src="js/system/components/dropdown/dropdown.js" type="text/javascript"></script>
+        <script src="js/system/components/numeros/numero.js" type="text/javascript"></script>
+        <script src="js/system/components/foreignkey/foreignkey.js" type="text/javascript"></script>
+        <script src="js/system/components/about/about.js" type="text/javascript"></script>
+        <script src="js/system/components/item/item.js" type="text/javascript"></script>
+        <script src="js/system/components/label/lbl.js" type="text/javascript"></script>
+        <script src="js/system/components/datepicker/datepicker.js" type="text/javascript"></script>
+        <script src="js/system/components/radiogroup/radiogroup.js" type="text/javascript"></script>
+
+        <script src="js/system/components/manytomany/manytomany.js" type="text/javascript"></script>
+        <script src="js/system/components/manytomany/modalController.js" type="text/javascript"></script>
+        <script src="js/system/components/manytomany/modal2Controller.js" type="text/javascript"></script>
+        <script src="js/system/components/texto/texto.js" type="text/javascript"></script>       
+        <script src="js/system/components/boolean/boolean.js" type="text/javascript"></script>
+        <script src="js/system/components/key/key.js" type="text/javascript"></script>        
+        <script src="js/system/components/bfkey/bfkey.js" type="text/javascript"></script>
+        <script src="js/system/components/actions/actions.js" type="text/javascript"></script>
+        <script src="js/system/components/timepicker/timepicker.js" type="text/javascript"></script>
+        <script src="js/system/components/graficas/graficas.js" type="text/javascript"></script>
+        <script src="js/system/components/miniview/miniview.js" type="text/javascript"></script>
+        
+        <!-- ------------------------------- --> 
+        <script src="js/usuario/service.js" type="text/javascript"></script>
+        <script src="js/usuario/view.js" type="text/javascript"></script>
+        <script src="js/usuario/plist.js" type="text/javascript"></script>
+        <script src="js/usuario/edit.js" type="text/javascript"></script>
+        <script src="js/usuario/new.js" type="text/javascript"></script>
+        <script src="js/usuario/selection.js" type="text/javascript"></script>
+        <script src="js/usuario/remove.js" type="text/javascript"></script>
+        <script src="js/usuario/removepop.js" type="text/javascript"></script>
+        <script src="js/usuario/viewpop.js" type="text/javascript"></script>
+        <!-- ------------------------------- -->
+
+        <script src="js/hotel/edit.js" type="text/javascript"></script>
+        <script src="js/hotel/new.js" type="text/javascript"></script>
+        <script src="js/hotel/plist.js" type="text/javascript"></script>
+        <script src="js/hotel/remove.js" type="text/javascript"></script>
+        <script src="js/hotel/removepop.js" type="text/javascript"></script>
+        <script src="js/hotel/selection.js" type="text/javascript"></script>
+        <script src="js/hotel/service.js" type="text/javascript"></script>
+        <script src="js/hotel/view.js" type="text/javascript"></script>
+        <script src="js/hotel/viewpop.js" type="text/javascript"></script>
+
+        <!-- ------------------------------- -->
+        <script src="js/provincia/edit.js" type="text/javascript"></script>
+        <script src="js/provincia/new.js" type="text/javascript"></script>
+        <script src="js/provincia/plist.js" type="text/javascript"></script>
+        <script src="js/provincia/remove.js" type="text/javascript"></script>
+        <script src="js/provincia/removepop.js" type="text/javascript"></script>
+        <script src="js/provincia/selection.js" type="text/javascript"></script>
+        <script src="js/provincia/service.js" type="text/javascript"></script>
+        <script src="js/provincia/view.js" type="text/javascript"></script>
+        <script src="js/provincia/viewpop.js" type="text/javascript"></script>
+
+        <!-- ------------------------------- -->
+
+        <script src="js/reserva/edit.js" type="text/javascript"></script>
+        <script src="js/reserva/new.js" type="text/javascript"></script>
+        <script src="js/reserva/plist.js" type="text/javascript"></script>
+        <script src="js/reserva/remove.js" type="text/javascript"></script>
+        <script src="js/reserva/removepop.js" type="text/javascript"></script>
+        <script src="js/reserva/selection.js" type="text/javascript"></script>
+        <script src="js/reserva/service.js" type="text/javascript"></script>
+        <script src="js/reserva/view.js" type="text/javascript"></script>
+        <script src="js/reserva/viewpop.js" type="text/javascript"></script>
+        <!-- ------------------------------- -->
+    </body>
+</html>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

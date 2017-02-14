@@ -1,0 +1,26 @@
+<!--
+                            <p>Mostrando una consulta de {{registers}} registros.</p>
+                            <p ng-if="orderParams == null">Contenido no ordenado</p>
+                            <p ng-if="orderParams != null"><small>Contenido ordenado por {{orderParams}} <a ng-click="doresetorder()" id="linkQuitarOrden">(Quitar orden)</a></small></p>
+                            <p ng-if="filterParams == null">Contenido no filtrado</p>
+                            <p ng-if="filterParams != null"><small>Contenido filtrado ({{filterParams}}) <a ng-click="doresetfilter()" id="linkQuitarFiltro">(Quitar filtro)</a></small></p>
+
+-->
+<div ng-controller="plistInfoController">
+    <p>Mostrando una consulta de {{registers}} registros.</p>
+    <p ng-if="orderParams == null">Contenido no ordenado</p>
+    <p ng-if="orderParams != null">Contenido ordenado: {{orderParams}}
+        <!-- <span ng-repeat="obj in uorder">{{obj[0]}} ({{obj[1]}}); </span> -->
+        <a ng-click="doresetorder()" id="linkQuitarOrden">(Quitar orden)</a>
+    </p>
+    <p ng-if="filterParams == null">Contenido no filtrado en servidor</p>
+    <p ng-if="filterParams != null">Contenido filtrado: {{filterParams}}
+        <!-- <span ng-repeat="obj in ufilter">{{obj[0]}} {{obj[1]}} {{obj[2]}}; </span>  -->
+        <a ng-click="doresetfilter()" id="linkQuitarFiltro">(Quitar filtro)</a>                                                       
+    </p>
+    <p ng-if="searchText.length == 0">Contenido no filtrado en cliente</p>
+    <p ng-if="searchText.length > 0">Contenido filtrado en cliente 
+        <a ng-click="resetClientfilter()" id="linkQuitarFiltro">(Quitar filtro)</a>
+    </p>
+    <p></p>
+</div>

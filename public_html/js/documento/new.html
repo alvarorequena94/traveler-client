@@ -1,0 +1,151 @@
+<!--
+Copyright (c) 2015 by Rafael Angel Aznar Aparici (rafaaznar at gmail dot com)
+
+sisane: The stunning micro-library that helps you to develop easily
+            AJAX web applications by using Angular.js 1.x & sisane-server
+sisane is distributed under the MIT License (MIT)
+Sources at https://github.com/rafaelaznar/
+
+Permission is hereby granted, free of charge, to any person obtaining a copy
+of this software and associated documentation files (the "Software"), to deal
+in the Software without restriction, including without limitation the rights
+to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+copies of the Software, and to permit persons to whom the Software is
+furnished to do so, subject to the following conditions:
+
+The above copyright notice and this permission notice shall be included in
+all copies or substantial portions of the Software.
+
+THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
+THE SOFTWARE.
+
+-->
+
+<div id="wrapper">
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-lg-12">
+                <div class="panel panel-default">
+                    <div class="panel-heading" style="font-family:Oswald , serif;"  ng-include="'js/system/header.html'"></div>
+                    <div class="panel-body" ng-cloak>
+                        <div class="alert alert-success" role="alert" ng-if="debugging">
+                            <h4>Debug:</h4>
+                            {{bean|json}}
+                        </div>
+                        <form name="outerForm" class="form-horizontal text-left"  ng-if="!status">
+                            <div ng-repeat="f in fields">
+                                <!------------------------------------------------->
+                                <div ng-if="f.type == 'id'" class="form-group" id="{{f.name}}-group">
+                                    <clabel wide="2" name="f.name" longname="f.longname" required="f.required"></clabel>
+                                    <div class="control col-sm-3"> 
+                                        <key ide="bean[f.name]" name="f.name" disable="false"></key> 
+                                    </div>
+                                </div>
+                                <!------------------------------------------------->
+                                <div ng-if="f.type == 'text'"
+                                     id="{{f.name}}-group"
+                                     class="form-group"
+                                     ng-class="{'has-error': (outerForm[f.name].$error.pattern) ||
+                                                 (outerForm[f.name].$error.required)}">
+                                    <label class="col-sm-2 control-label" for="{{f.name}}">
+                                        <span ng-if="{{f.required}}">*</span>
+                                        {{f.longname}}:
+                                    </label>
+                                    <div class="control col-sm-8">
+                                        <input ng-model="bean[f.name]"
+                                               type="text"
+                                               class="form-control"
+                                               id="{{f.name}}"
+                                               name="{{f.name}}"
+                                               ng-pattern="f.pattern"
+                                               placeholder="{{f.name}}"
+                                               maxlength="{{f.maxlength}}"
+                                               ng-required="{{f.required}}"
+                                               />
+                                        <span class="help-block" ng-if="outerForm[f.name].$error.required">El campo es obligatorio</span>
+                                        <span class="help-block" ng-if="outerForm[f.name].$error.pattern">El campo no tiene formato adecuado: {{f.help}}</span>
+                                    </div>
+                                </div>
+                                <!------------------------------------------------->
+                                <div class="form-group"
+                                     ng-if="f.name == 'fecha'"
+                                     id="fecha-group"
+                                     ng-class="{'has-error': (outerForm.fecha.$error.required ||
+                                                 outerForm.fecha.$error.valid)
+                                                 && !outerForm.fecha.$pristine}">
+                                    <clabel wide="2" name="f.name" longname="f.longname" required="f.required" /> 
+                                    <div class="control col-sm-3">
+                                        <date-picker ng-if="f.type == 'date'" 
+                                                     name="f.name" 
+                                                     required="f.required" 
+                                                     model="bean.fecha" 
+                                                     form="outerForm" /> 
+                                        <span class="help-block" ng-if="outerForm.fecha.$error.required">El campo es obligatorio</span>
+                                    </div>
+                                </div>
+                                <!------------------------------------------------->
+                                <div class="form-group"
+                                     ng-if="show_obj_tipodocumento && (f.name == 'obj_tipodocumento')"
+                                     ng-class="{'has-error': (outerForm.obj_tipodocumento.$error.required ||
+                                                 outerForm.obj_tipodocumento.$error.exists ||
+                                                 outerForm.obj_tipodocumento.$error.validatemin)}"
+                                     ng-if="show_obj_tipodocumento">
+                                    <label class="col-sm-2 control-label" for="obj_tipodocumento">Tipo de Documento:</label>
+                                    <div class="control col-sm-3">
+                                        <div class="input-group foreign" id="obj_tipodocumento_group">
+                                            <span class="input-group-addon" id="obj_tipodocumento_button" ng-click="chooseOne('obj_tipodocumento', 'tipodocumento', 'TipodocumentoSelectionController')">
+                                                <span class="glyphicon glyphicon-search">
+                                                </span>
+                                            </span>
+                                            <input type="text"
+                                                   ng-model-options="{debounce: 1000}"
+                                                   ng-change="obj_tipodocumento_change"
+                                                   ng-model="bean.obj_tipodocumento.id"
+                                                   validatemin="1"
+                                                   ng-required="true"
+                                                   aria-describedby="basic-addon2"
+                                                   class="form-control"
+                                                   id="obj_tipodocumento"
+                                                   name="obj_tipodocumento"
+                                                   size="5"
+                                                   maxlength="5">
+                                            <span class="input-group-addon">
+                                                <span>{{bean.obj_tipodocumento.descripcion}}</span>
+                                            </span>
+                                        </div>
+                                        <span class="help-block" ng-if="outerForm.obj_tipodocumento.$error.required">El tipo de documento es obligatorio</span>
+                                        <span class="help-block" ng-if="outerForm.obj_tipodocumento.$error.validatemin">Debes elegir un tipo de documento</span>
+                                        <span class="help-block" ng-if="outerForm.obj_tipodocumento.$error.exists">El tipo de documento no existe</span>
+                                    </div>
+                                </div>
+                                <!------------------------------------------------->
+                            </div>
+                            <div class="control-group text-right">
+                                <div class="controls">
+                                    <a class="btn btn-primary" ng-click="save()" ng-disabled="!outerForm.$valid">Guardar</a>
+                                    <a class="btn btn-default" ng-click="plist()">Ir al listado de documentos</a>
+                                    <a class="btn btn-default" ng-click="close()">Cerrar</a>
+                                </div>
+                            </div>
+                        </form>
+                        <div ng-if="status">
+                            <div class="alert alert-success" ng-if="response.status == 200">
+                                <h2>{{status}}</h2>
+                                <a ng-href="{{ob}}/view/{{bean.id}}">Ver {{obtitle}}</a>
+                            </div>
+                            <div class="alert alert-danger" ng-if="response.status != 200">
+                                <h2>{{status}}</h2>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="panel-footer" style="font-family: Questrial, serif;" ng-include="'js/system/footer.html'"></div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

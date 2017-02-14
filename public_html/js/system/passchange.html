@@ -1,0 +1,51 @@
+<div id="wrapper">
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-lg-12">
+                <div class="panel panel-default">
+                    <div class="panel-heading" style="font-family:Oswald , serif;"  ng-include="'js/system/header.html'"></div>
+                    <div class="panel-body" ng-cloak>
+                        <div class="row-fluid">
+                            <div class="col-md-3 col-md-offset-4">
+                                <div class="alert alert-success" role="alert" ng-if="debugging">
+                                    <h4>Debug:</h4>
+                                    old: {{old|json}} new: {{new |json}}
+                                </div> 
+                                <br />
+                                <div ng-show="!status">
+                                    <form name="oform"  ng-submit="change()" role="form">
+                                        <div class="form-group" ng-class="{ 'has-error': form.username.$dirty && form.username.$error.required }">
+                                            <label for="old">Password actual</label>                                            
+                                            <input  type="password" name="old" id="old" class="form-control" ng-model="old" required/>
+                                            <span ng-if="form.old.$dirty && form.old.$error.required" class="help-block">Debes introducir el password</span>
+                                        </div>
+                                        <div class="form-group" ng-class="{ 'has-error': form.password.$dirty && form.password.$error.required }">
+                                            <label for="new">Nuevo Password</label>
+                                            <input type="password" name="new" id="new" class="form-control" ng-model="new" required/>
+                                            <span ng-if="form.new.$dirty && form.new.$error.required" class="help-block">Debes introducir un password</span>
+                                        </div>
+                                        <div class="form-actions">
+                                            <button  ng-disabled="form.$invalid" class="btn btn-primary" ng-click="passchange()">Cambiar</button>
+                                        </div>
+
+                                    </form>
+                                </div>
+                                <div ng-if="status">
+                                    <div class="alert alert-success" ng-if="response.status == 200">
+                                        <h2>{{status}}</h2>
+                                        <a ng-href="home">Continuar</a>                                        
+                                    </div>
+                                    <div class="alert alert-danger" ng-if="response.status != 200">
+                                        <h2>ERROR: {{status}}</h2>                                                                                
+                                    </div>
+                                </div>
+                                <br />
+                            </div>
+                        </div>
+                    </div>
+                    <div class="panel-footer" style="font-family: Questrial, serif;" ng-include="'js/system/footer.html'"></div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

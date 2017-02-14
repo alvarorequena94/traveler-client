@@ -1,0 +1,20 @@
+<!--
+<div class="btn-group" role="group">
+    <button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
+        Acciones<span class="caret"></span>
+    </button>
+    <ul class="dropdown-menu">
+        <li><a class="btn btn-default action02" href="{{ob}}/view/{{obj.id}}"><i class="fa fa-eye fa-2g"></i> Ver</a></li>
+        <li><a class="btn btn-default action03" href="{{ob}}/edit/{{obj.id}}"><i class="fa fa-pencil fa-2g"></i> Editar</a></li>
+        <li><a class="btn btn-default action04" href="{{ob}}/remove/{{obj.id}}"><i class="fa fa-times fa-2g"></i> Borrar</a></li>
+    </ul>
+</div>
+-->
+<div class="btn-toolbar" role="toolbar"  ng-controller="plistoperationbarspaController">
+    <div class="btn-group">
+        <a class="btn btn-default btn-xs" ng-click="chooseOne(obj.id)">            
+            <i class="fa fa-reply" aria-hidden="true"></i>
+        </a>
+    </div>
+</div>
+

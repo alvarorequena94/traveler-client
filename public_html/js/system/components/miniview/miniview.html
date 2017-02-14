@@ -1,0 +1,20 @@
+<table class="table table-condensed table-responsive table-bordered">
+
+    <tr class="active">
+        <td rowspan="2" style ="vertical-align: middle; background-color: #658b6e;color: white"><b>{{ct.nombre}}</b></td>
+        <td style ="background-color: #adadad;color: white" ng-repeat="f in ct.fields.fields" class="text-right" ng-if="ct.bean[f.name] && f.type != 'foreign'">
+            <b>{{f.longname}}</b> 
+        </td>
+    </tr>
+    <tr>
+        <td style ="background-color: whitesmoke;color: slategrey" ng-repeat="f in ct.fields.fields" class="text-right" ng-if="ct.bean[f.name] && f.type != 'foreign'">
+            <span ng-if="f.type == 'id'"><b>{{ct.bean[f.name]}}</b></span>
+            <span ng-if="f.type == 'textarea'" ng-bind-html="ct.bean[f.name] | breakFilter"></span>
+            <span ng-if="f.type == 'date'">{{ct.bean[f.name]}}</span>
+            <span ng-if="f.type == 'integer'">{{ct.bean[f.name]}}</span>
+            <span ng-if="f.type == 'decimal'">{{ct.bean[f.name]}}</span>
+            <span ng-if="f.type == 'text'">{{ct.bean[f.name]}}</span>
+            <span ng-if="f.type == 'boolean'" ng-bind-html="ct.bean[f.name] | booleanizate"></span>
+        </td>  
+    </tr>
+</table>
